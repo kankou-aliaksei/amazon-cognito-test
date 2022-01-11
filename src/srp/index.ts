@@ -131,6 +131,19 @@ export class AmazonCognitoSrp implements AmazonCognitoSrpType {
         }
     }
 
+    public deleteUser = async (): Promise<string> => {
+        return new Promise<string>((
+            resolve: (value: string) => void,
+            reject: (reason?: Error) => void): void => {
+            this.cognitoUser.deleteUser((err?: Error, result?: string): void => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(result as string);
+            });
+        });
+    }
+
     public setTotpSecretCode(totpSecretCode: string): void {
         this.totpSecretCode = totpSecretCode;
     }

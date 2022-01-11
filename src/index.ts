@@ -74,14 +74,8 @@ export class CognitoTest {
     }
 
     private async destroy(): Promise<void> {
-        if (this.userPoolId && this.username) {
-            const adminDeleteUserCommand: AdminDeleteUserCommand = new AdminDeleteUserCommand({
-                UserPoolId: this.userPoolId,
-                Username: this.username
-            });
-
-            await this.cognitoIdp.send<AdminDeleteUserCommandInput,
-                AdminDeleteUserCommandOutput>(adminDeleteUserCommand);
+        if (this.cognitoSrp) {
+            await this.cognitoSrp.deleteUser();
         }
     }
 

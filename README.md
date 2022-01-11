@@ -32,7 +32,6 @@ This is a least privilege AWS Identity and Access Management (IAM) policy to att
             "Action": [
                 "cognito-idp:DescribeUserPool",
                 "cognito-idp:AdminCreateUser",
-                "cognito-idp:AdminDeleteUser",
                 "cognito-idp:AdminAddUserToGroup"
             ],
             "Resource": [

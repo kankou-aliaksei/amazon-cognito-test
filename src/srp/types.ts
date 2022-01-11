@@ -16,4 +16,5 @@ export interface AuthResult {
 
 export interface AmazonCognitoSrpType {
     authenticate(): Promise<AuthResult>;
+    deleteUser(): Promise<string>;
 }
